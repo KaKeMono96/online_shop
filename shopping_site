@@ -1,0 +1,87 @@
+//
+// Created by A3 on 17/02/2023.
+//
+#include"iostream"
+using namespace std;
+
+int main() {
+    float onlineShopping(void);
+    char press;
+    char choiceAgain;
+    startLevel:
+    cout<<"Welcome to our online shop"<<endl;
+    cout<<"Press s to start online shopping"<<endl;
+    start:
+    cin>>press;
+    if(press=='s' || press=='S'){
+        float totalAmount=onlineShopping();
+        cout<<"Total bill amount is="<<totalAmount<<endl;
+        shopAgain:
+        cout<<"Do you want shopping again! y or n"<<endl;
+        cin>>choiceAgain;
+        if(choiceAgain=='y' || choiceAgain=='Y'){
+            goto startLevel;
+        }else if(choiceAgain=='n' || choiceAgain=='N'){
+            cout<<"Thank for shopping"<<endl;
+        }else{
+            cout<<"Your enter wrong option pls type again"<<endl;
+            goto shopAgain;
+        }
+    }else{
+        cout<<"You enter wrong option please enter s"<<endl;
+        goto start;
+    }
+
+return 0;
+}
+
+float onlineShopping() {
+
+    char choice;
+    int item;
+    float billAmount = 0;
+    int quantity;
+
+
+    cout << "Please enter m to order mobile phone:" << endl;
+    cout << "Please enter l to order laptop:" << endl;
+    cout << "Please enter d to order desktop:" << endl;
+    cout << "Please enter s to order sound Box:" << endl;
+    cin >> choice;
+    if (choice == 'm') {
+        mobileLevel:
+        cout << "===Mobile details===" << endl;
+        cout << "(1) Apple => price=50000" << endl;
+        cout << "(2) Samsung => price=30000" << endl;
+        cout << "(3) Oppo => price=20000" << endl;
+        cout << "(4) Redmi => price=10000" << endl;
+        cout << "(5) BlackBerry => price=60000" << endl;
+        cout<<"Enter choose item:"<< endl;
+        cin >> item;
+        if (item == 1) {
+            cout << "Enter quantity:" << endl;
+            cin >> quantity;
+            billAmount = billAmount + quantity * 50000;
+        } else if (item == 2) {
+            cout << "Enter quantity:" << endl;
+            cin >> quantity;
+            billAmount = billAmount + quantity * 30000;
+        } else if (item == 3) {
+            cout << "Enter quantity:" << endl;
+            cin >> quantity;
+            billAmount = billAmount + quantity * 20000;
+        } else if (item == 4) {
+            cout << "Enter quantity:" << endl;
+            cin >> quantity;
+            billAmount = billAmount + quantity * 10000;
+        } else if (item == 5) {
+            cout << "Enter quantity:" << endl;
+            cin >> quantity;
+            billAmount = billAmount + quantity * 60000;
+        } else {
+            cout << "You enter wrong option please type again" << endl;
+            goto mobileLevel;
+        }
+    }
+    return billAmount;
+}
